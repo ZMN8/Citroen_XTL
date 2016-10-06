@@ -108,7 +108,6 @@ var json={
                         pan.css("transform","rotate("+angel+"deg)");
                         console.log( webURL);
                         setTimeout(function(){
-                            alert(1)
                             var localUrl=String(window.location);
                             localUrl=localUrl.replace(/prize_draw/,webURL);
                             var endPos=localUrl.lastIndexOf("?");
