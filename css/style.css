@@ -1,0 +1,631 @@
+/*init css*/
+html,
+body,
+div,
+dd,
+dt,
+dl,
+a,
+span,
+em,
+i,
+img,
+input,
+select,
+option,
+textarea,
+button,
+label,
+ol,
+ul,
+li,
+strong,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+footer,
+section,
+p,
+form {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+img {
+  border: 0 none;
+  vertical-align: top;
+}
+html {
+  font-size: 625%;
+}
+body {
+  font-family: "微软雅黑";
+  font-size: 0.18rem;
+  max-width: 640px;
+  min-width: 320px;
+  background-color: #fff;
+  margin: 0 auto;
+  color: #666666;
+}
+a,
+img,
+button,
+input,
+textarea,
+div {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+input,
+textarea,
+div {
+  -webkit-appearance: none;
+}
+/*ios去除点击阴影*/
+input,
+button {
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+/*苹果input按钮背景有渐变色*/
+/*变量*/
+.center {
+  margin: 0 auto;
+}
+input::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #1bb2b2;
+}
+input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #1bb2b2;
+}
+input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #1bb2b2;
+}
+input:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #1bb2b2;
+}
+/*index css*/
+.header {
+  width: 100%;
+}
+.header .logo_box {
+  width: 100%;
+  height: 0.75rem;
+  position: relative;
+  border-bottom: 3px solid #d60023 ;
+}
+.header i {
+  display: block;
+}
+.header .logo {
+  width: 0.82rem;
+  height: 0.67rem;
+  background: url("../img/icon.png") no-repeat 0rem 0rem;
+  background-size: 0.95rem 1.16rem;
+  position: absolute;
+  bottom: 0rem;
+  right: 0.43rem;
+}
+.header .xtl {
+  width: 0.95rem;
+  height: 0.16rem;
+  background: url("../img/icon.png") no-repeat 0rem -0.82rem;
+  background-size: 0.95rem 1.16rem;
+  position: absolute;
+  bottom: 0.08rem;
+  left: 0.4rem;
+}
+.header .bg {
+  width: 100%;
+  height: 2.54rem;
+  background: url("../img/activity_bg.png") no-repeat 0rem 0rem;
+  background-size: 6.4rem 2.54rem;
+}
+.header .yzm_bg {
+  width: 100%;
+  height: 3rem;
+  background: url("../img/yzm_bg.png") no-repeat 0rem 0rem;
+  background-size: 6.4rem 3rem;
+}
+.header .cj_bg {
+  width: 100%;
+  height: 2.42rem;
+  background: url("../img/cj_bg.jpg") no-repeat 0rem 0rem;
+  background-size: 6.4rem 2.42rem;
+}
+.activity {
+  width: 100%;
+}
+.activity h3 {
+  width: 5.85rem;
+  height: 0rem;
+  border-top: 0.02rem #1bb2b1 solid;
+  position: relative;
+  margin: 0 auto;
+}
+.activity h3 span {
+  width: 1.55rem;
+  height: 0.3rem;
+  line-height: 0.3rem;
+  text-align: center;
+  background-color: #fff;
+  display: block;
+  color: #1bb2b2;
+  font-size: 0.25rem;
+  font-weight: 500;
+  position: absolute;
+  top: 50%;
+  margin-top: -0.15rem;
+  left: 50%;
+  margin-left: -0.775rem;
+  font-family: "黑体";
+}
+.activity p {
+  line-height: 25px;
+  width: 6rem;
+  margin: 0.24rem auto 0.2rem;
+}
+.table {
+  border: 1px #1bb2b2 solid;
+  border-radius: 0.08rem;
+  margin: 0 auto;
+  width: 6.05rem;
+  margin-bottom: 0.33rem;
+}
+.table dt,
+.table dd {
+  height: 0.9rem;
+  padding-left: 0.16rem;
+  line-height: 0.9rem;
+  border-bottom: 1px solid #1bb2b2;
+  position: relative;
+}
+.table dt strong,
+.table dd strong {
+  font-size: 0.3rem;
+  color: #1bb2b2;
+}
+.table dt input,
+.table dd input {
+  border: 0 none;
+  outline: none;
+  height: 0.9rem;
+  line-height: 0.9rem;
+  font-size: 0.3rem;
+  color: #000;
+  background: none;
+  position: absolute;
+  width: 4.5rem;
+  right: 0;
+  top: 0;
+}
+.table .select {
+  position: relative;
+}
+.table .select .select_pro,
+.table .select .select_city {
+  position: absolute;
+  bottom: 0.1rem;
+  left: 1.55rem;
+  width: 2.13rem;
+  height: 0.73rem;
+}
+.table .select .select_pro .sjx,
+.table .select .select_city .sjx {
+  width: 0.39rem;
+  height: 0.73rem;
+  display: block;
+  background-color: #1bb2b2;
+  border-radius: 0 0.08rem 0.08rem 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.table .select .select_pro .sjx:after,
+.table .select .select_city .sjx:after {
+  display: block;
+  background: url("../img/icon.png") no-repeat 0rem -1.03rem;
+  background-size: 0.95rem 1.16rem;
+  width: 0.13rem;
+  height: 0.13rem;
+  position: absolute;
+  top: 0.3rem;
+  left: 50%;
+  margin-left: -0.065rem;
+  content: " ";
+}
+.table .select .select_pro span,
+.table .select .select_city span {
+  display: block;
+  width: 1.74rem;
+  height: 0.73rem;
+  text-align: center;
+  line-height: 0.73rem;
+  color: #929292;
+  font-size: 0.28rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.table .select .select_pro select,
+.table .select .select_city select {
+  width: 2.13rem;
+  height: 0.73rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  outline: none;
+  opacity: 0;
+}
+.table .select .select_city {
+  left: 3.81rem;
+  bottom: 0.1rem;
+}
+.table .select_wangdian {
+  border-bottom: 0 none;
+}
+.table .select_wangdian #select_wangdian {
+  width: 5.64rem;
+  height: 0.73rem;
+  position: relative;
+  padding-top: 0.08rem;
+  margin: 0 auto;
+}
+.table .select_wangdian #select_wangdian select {
+  opacity: 0;
+  width: 5.64rem;
+  height: 0.73rem;
+  position: absolute;
+  top: 0.08rem;
+  left: 0;
+}
+.table .select_wangdian .sjx {
+  width: 0.39rem;
+  height: 0.73rem;
+  display: block;
+  background-color: #1bb2b2;
+  border-radius: 0 0.08rem 0.08rem 0;
+  position: absolute;
+  top: 0.08rem;
+  right: 0;
+}
+.table .select_wangdian .sjx:after {
+  display: block;
+  background: url("../img/icon.png") no-repeat 0rem -1.03rem;
+  background-size: 0.95rem 1.16rem;
+  width: 0.13rem;
+  height: 0.13rem;
+  position: absolute;
+  top: 0.3rem;
+  left: 50%;
+  margin-left: -0.065rem;
+  content: " ";
+}
+.table .select_wangdian span {
+  width: 5.25rem;
+  height: 0.73rem;
+  text-align: center;
+  line-height: 0.73rem;
+  color: #929292;
+  font-size: 0.28rem;
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.map {
+  border: 0.03rem #040000 solid;
+  border-radius: 0.03rem;
+  width: 5.99rem;
+  height: 2.13rem;
+  margin: 0 auto;
+  background: url("../img/map.jpg") no-repeat 0rem 0rem;
+  background-size: 5.99rem 2.14rem;
+}
+#index_table input[type="submit"] {
+  margin: 0.28rem auto 0;
+  width: 6.05rem;
+  height: 0.71rem;
+  background-color: #02b3b4;
+  border-radius: 0.1rem;
+  border: 1px #008687 solid;
+  display: block;
+  color: #ffffff;
+  font-size: 0.3rem;
+  font-weight: 600;
+  outline: none;
+}
+/*zym css*/
+.yzm_body {
+  position: relative;
+}
+.zym_main {
+  width: 100%;
+}
+.zym_main h3 {
+  width: 4.93rem;
+  height: 0rem;
+  margin: 0 auto;
+  margin-top: 0.42rem;
+  border-bottom: 2px #1bb2b2 solid;
+  position: relative;
+  margin-bottom: 0.83rem;
+}
+.zym_main h3 span {
+  font-size: 0.33rem;
+  font-weight: 500;
+  font-family: "黑体";
+  color: #1bb2b2;
+  text-align: center;
+  line-height: 0.4rem;
+  width: 3.05rem;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.4rem;
+  margin-left: -1.525rem;
+  background-color: #fff;
+}
+.zym_main .submit_message {
+  width: 5.72rem;
+  height: 0.64rem;
+  border-radius: 0.12rem;
+  border: 2px solid #1bb2b2;
+  margin: 0 auto;
+  position: relative;
+}
+.zym_main .submit_message input[type='text'] {
+  font-size: 0.3rem;
+  color: #000;
+  line-height: 0.64rem;
+  background: #fff;
+  width: 3.94rem;
+  border: 0 none;
+  outline: none;
+  padding-left: 0.16rem;
+  border-radius: 0.12rem 0 0 0.12rem;
+}
+.zym_main .submit_message .sub_btn {
+  width: 1.78rem;
+  height: 0.68rem;
+  background-color: #05d3d4;
+  border: 1px #06acad solid;
+  border-radius: 0.12rem;
+  outline: none;
+  color: #fff;
+  font-size: 0.24rem;
+  position: absolute;
+  right: -0.02rem;
+  top: -0.02rem;
+  text-align: center;
+  line-height: 0.68rem;
+}
+.zym_main .submit_message input[type="button"] {
+  width: 1.78rem;
+  height: 0.68rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 0;
+}
+.zym_main input[type="submit"] {
+  width: 2.55rem;
+  height: 0.69rem;
+  margin: 0 auto;
+  margin-top: 0.85rem;
+  border: 1px solid #57b6b6;
+  background-color: #03bebf;
+  line-height: 0.69rem;
+  border-radius: 0.08rem;
+  font-size: 0.36rem;
+  color: #fff;
+  display: block;
+}
+.footer {
+  width: 6.4rem;
+  height: 2.24rem;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  z-index: -1;
+  background: url("../img/zym_footer.jpg") no-repeat 0rem 0rem;
+  background-size: 6.4rem 2.24rem;
+  margin-left: -3.2rem;
+}
+/*prize draw css*/
+.cj_main {
+  width: 100%;
+}
+.cj_main h3 {
+  width: 3.95rem;
+  height: 0.02rem;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 0.37rem;
+}
+.cj_main h3 span {
+  position: absolute;
+  color: #f64a43;
+  font-size: 0.23rem;
+  line-height: 0.166rem;
+  display: block;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.083rem;
+  margin-left: -1.245rem;
+  width: 2.49rem;
+  text-align: center;
+}
+.cj_main h3:before {
+  display: block;
+  content: " ";
+  width: 0.73rem;
+  height: 0.02rem;
+  background-color: #f64a43;
+  float: left;
+}
+.cj_main h3:after {
+  display: block;
+  content: " ";
+  width: 0.73rem;
+  height: 0.02rem;
+  background-color: #f64a43;
+  float: right;
+}
+.cj_main .pan_box {
+  width: 5.92rem;
+  height: 5.92rem;
+  position: relative;
+  margin: 0 auto;
+}
+.cj_main .pan_box i {
+  display: block;
+  position: absolute;
+}
+.cj_main .pan_box #pan {
+  background: url("../img/pan.png") no-repeat 0rem 0rem;
+  background-size: 5.92rem 5.92rem;
+  width: 5.92rem;
+  height: 5.92rem;
+  top: 50%;
+  left: 50%;
+  margin-top: -2.96rem;
+  margin-left: -2.96rem;
+  -webkit-transition: all 2s;
+  -moz-transition: all 2s;
+  -ms-transition: all 2s;
+  -o-transition: all 2s;
+  transition: all 2s;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.cj_main .pan_box #pan_btn {
+  background: url("../img/pan_btn.png") no-repeat 0rem 0rem;
+  background-size: 2.28rem 2.74rem;
+  width: 2.28rem;
+  height: 2.74rem;
+  top: 1.48rem;
+  left: 1.75rem;
+}
+/*first prize css*/
+.prize_main,
+.success_main {
+  margin: 0.15rem auto 0.29rem;
+  background: url("../img/prize_bg.png") no-repeat 0rem 0rem;
+  background-size: 6.15rem 3.43rem;
+  width: 6.15rem;
+  height: 3.43rem;
+  position: relative;
+}
+.prize_main .brand,
+.success_main .brand {
+  padding-top: 0.2rem;
+  padding-left: 1.7rem;
+}
+.prize_main .brand dt,
+.success_main .brand dt {
+  font-size: 0.28rem;
+  color: #fff;
+  line-height: 0.35rem;
+}
+.prize_main .brand dd,
+.success_main .brand dd {
+  font-size: 0.2rem;
+  color: #fff;
+  line-height: 0.38rem;
+}
+.prize_main .date,
+.success_main .date {
+  position: absolute;
+  top: 1.93rem;
+  left: 0.38rem;
+}
+.prize_main .date dt,
+.success_main .date dt {
+  font-size: 0.45rem;
+  color: #fff;
+  line-height: 0.57rem;
+  font-weight: 500;
+}
+.prize_main .date dd,
+.success_main .date dd {
+  font-size: 0.2rem;
+  color: #fff;
+  line-height: 0.25rem;
+  padding-left: 0.1rem;
+}
+.prize_main p,
+.success_main p {
+  width: 100%;
+  text-align: center;
+  line-height: 0.63rem;
+  font-size: 0.4rem;
+  color: #fff;
+  position: absolute;
+  top: 1.87rem;
+  left: 0;
+}
+#Prize {
+  width: 6.05rem;
+  height: 0.71rem;
+  background: url("../img/sub.png") no-repeat 0rem 0rem;
+  background-size: 6.05rem 0.71rem;
+  margin: 0 auto;
+  display: block;
+  border: 0 none;
+  outline: none;
+  text-align: -99em;
+  overflow: hidden;
+}
+/*participateAward css*/
+.participateAward {
+  padding-top: 1.53rem;
+}
+.participateAward .main {
+  background: url("../img/wujiang.jpg") no-repeat 0rem 0rem;
+  background-size: 6.4rem 6.89rem;
+  width: 6.4rem;
+  height: 6.89rem;
+  position: relative;
+}
+.participateAward .main a {
+  display: block;
+  width: 3.53rem;
+  height: 1.26rem;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1.865rem;
+}
+/*success css*/
+.gwc {
+  display: block;
+  background: url("../img/gwc.jpg") no-repeat 0rem 0rem;
+  background-size: 2.99rem 2.52rem;
+  width: 2.99rem;
+  height: 2.52rem;
+  position: absolute;
+  right: 0;
+}
+.success_main {
+  background: url("../img/success.jpg") no-repeat 0rem 0rem;
+  background-size: 6.15rem 4.04rem;
+  width: 6.15rem;
+  height: 4.04rem;
+}

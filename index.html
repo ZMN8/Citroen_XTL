@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>首页</title>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=goYUijpW6poPCy3banZDhoaurjeq4jls" type="text/javascript"></script>
+    <script src="js/zepto.min.js"></script>
+    <script src="js/touch.js"></script>
+    <script src="js/js.js"></script>
+    <script src="js/location_chs.js"></script>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div class="header">
+    <div class="logo_box">
+        <i class="logo"></i>
+        <i class="xtl"></i>
+    </div>
+    <i class="bg"></i>
+</div>
+<div class="activity">
+    <h3><span>活动说明</span></h3>
+    <p>在3月10日至4月15日期间，所有在东风雪铁龙支付宝服务窗正确填写个人信息的客户，均可参与迎春体验季活动；活动内容包括：购车订金随机减、全系试驾送豪礼、备附件礼券送不停。</p>
+    <form method="get" id="index_table" action="yzm.html">
+        <dl class="table">
+            <dt><strong>姓名</strong><input type="text" value="" name="username"/></dt>
+            <dd><strong>联系方式</strong><input type="text" value="" name="tel"/></dd>
+            <dd class="select">
+                <strong>选择网点</strong>
+                <div class="select_pro">
+                    <span>请选择省份</span>
+                    <i class="sjx"></i>
+                    <select id="pro" name="pro">
+                        <option value="null">请选择省份</option>
+                    </select>
+                </div>
+                <div class="select_city">
+                    <span>请选择城市</span>
+                    <i class="sjx"></i>
+                    <select id="city" name="city">
+                        <option value="null">请选择城市</option>
+                    </select>
+                </div>
+            </dd>
+            <dd class="select_wangdian">
+                <div id="select_wangdian">
+                    <span>请选择网点</span>
+                    <i class="sjx"></i>
+                    <select id="wangdian" name="wangdian">
+                        <option value="null">请选择网点</option>
+                    </select>
+                </div>
+
+            </dd>
+        </dl>
+        <div class="map" id="myMap">
+        </div>
+        <input type="submit" value="确认提交" name="indexSub">
+    </form>
+
+</div>
+<script>
+    var map=new BMap.Map("myMap"),//创建地图
+            local=null;
+
+    /*三级联动*/
+    var usernameNode=$("input[name='username']"),
+            telNode=$("input[name='tel']"),
+            proNode=$('#pro'),
+            cityNode=$('#city'),
+            wangdianNode=$('#wangdian');
+    var frag=document.createDocumentFragment();
+    for(var i in dataCountry.province){
+        var optionCreatNode=document.createElement("option");
+        optionCreatNode.value=i;
+        $(optionCreatNode).text(i);
+        frag.appendChild(optionCreatNode);
+    }
+    proNode.append($(frag));
+    proNode.change(function(){//选择省
+        if(proNode.val()!="null"){
+            proNode.parent().children("span").css("color","#000").html(this.value);
+            for(var i in dataCountry.province[this.value]){
+                var optionCreatNode=document.createElement("option");
+                optionCreatNode.value=i;
+                $(optionCreatNode).text(dataCountry.province[this.value][i]);
+                frag.appendChild(optionCreatNode);
+            }
+            cityNode.parent().children("span").css("color","#929292").html("请选择城市");
+            wangdianNode.parent().children("span").css("color","#929292").html("请选择网点");
+            wangdianNode.html("<option value='null'>请选择网点</option>");
+            cityNode.html(" <option value='null'>请选择城市</option>");
+            cityNode.append($(frag));
+        }
+
+    });
+    var cityName;
+    cityNode.change(function(){//x选择市
+
+        if(this.value!="null"){
+            var val=this.value;//序号
+            var txt=$(this).children("[value=\""+val+"\"]").text();//市
+            cityName=txt;
+            cityNode.parent().children("span").css("color","#000").html(txt);
+            for(var i in dataCountry.company[txt]){
+                var optionCreatNode=document.createElement("option");
+                optionCreatNode.value=i;
+                $(optionCreatNode).text(dataCountry.company[txt][i]);
+                frag.appendChild(optionCreatNode);
+            }
+            wangdianNode.parent().children("span").css("color","#929292").html("请选择网点");
+            wangdianNode.html("<option value='null'>请选择网点</option>");
+            wangdianNode.append($(frag));
+        }
+
+    });
+    wangdianNode.change(function(){//选择网点
+
+        if(this.value!="null"){
+            var val=this.value;
+            var txt=$(this).children("[value='"+val+"']").html();
+            $(this).parent().children("span").css("color","#000").html(txt);//网点的名字
+            var arr=dataCountry.address[txt];//网点的相关信息
+            map.clearOverlays();//清除地图上所有覆盖物
+            map.centerAndZoom(cityName);//初始化地图，如果center类型为字符串时，zoom可以忽略，地图将自动根据center适配最佳zoom级别
+            local = new BMap.LocalSearch(map, {
+                onSearchComplete: function(results) {//类表示LocalSearch的检索结果，没有构造函数，通过LocalSearch.getResults()方法或LocalSearch的onSearchComplete回调函数的参数得到。
+
+                    var rs=results.getPoi(0);//返回索引指定的结果。索引0表示第1条结果
+                    if(rs)
+                    {
+
+                        var point = new BMap.Point(rs.point.lng,rs.point.lat);//以指定的经度纬度创建一个地理坐标
+                        map.centerAndZoom(point, 12);//将结果显示在地图上
+                        var marker = new BMap.Marker(point);  // 创建标注
+                        map.addOverlay(marker);              // 将标注添加到地图中
+                        marker.addEventListener("click",getAttr);//给标注添加事件
+                        var opts = {
+                            title : txt ,//信息窗口标题
+                            message:"hahah"
+                        };
+                        var infoWindow = new BMap.InfoWindow("地址："+arr[0]+"<br />电话："+arr[1], opts);//创建信息窗口对象
+                        function getAttr(){
+                            map.openInfoWindow(infoWindow,point); //开启信息窗口
+                        }
+                    }
+                }
+            });
+            window.setTimeout(function(){
+                local.search(txt);//发起网点检索
+            },800);
+        }
+    });
+    /*验证表单*/
+    $("#index_table").submit(function(){//点击确认按钮
+        var telReg=/^\s*((13[0-9])|(14[57])|(15[012356789])|(17[678])|(18[0-9]))[0-9]{8}\s*$/;
+        var username=usernameNode.val();
+        username=json.strFun(username);//得到 姓名
+        var tel=telNode.val();
+        tel=json.strFun(tel);//得到 联系方式
+        if(username==""){
+            alert('请输入姓名！');
+            return false;
+        }
+        if(!telReg.test(tel)){
+            alert('请输入正确的手机号！');
+            return false;
+        }
+        var proVal=proNode.val();
+        var cityVal=cityNode.val();
+        var wangdianVal=wangdianNode.val();
+        console.log(username,tel,proVal,cityVal);
+        if(proVal=="null"||cityVal=="null"||wangdianVal=="null"){
+            alert("信息不能为空！");
+            return false;
+        }
+    });
+</script>
+</body>
+</html>
